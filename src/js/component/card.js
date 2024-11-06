@@ -2,13 +2,22 @@ import React from "react";
 
 const Card = (props) => {
     return (
-        <div className="card" style={{width: "18rem"}}>
-            <img className="card-img-top" src={"https://starwars-visualguide.com/assets/img/characters/"+props.uid+".jpg"} 
-            alt="Luke"/>
-                <div className="card-body">
-                    <h5 className="card-title">{props.name} </h5>
-                </div>
+
+        <div className="my-card">
+            <img src="https://starwars-visualguide.com/assets/img/characters/1.jpg" />
+            <h3>Aqui va el nombre</h3>
+            <div className="my-body-text">
+                <p>Gender</p>
+                <p>Hair Color</p>
+                <p>Eye Color</p>
+            </div>
+            <div className="my-footer">
+                <button>Learn more..</button>
+                <button>Like</button>
+            </div>
         </div>
+
+
     )
 }
 
