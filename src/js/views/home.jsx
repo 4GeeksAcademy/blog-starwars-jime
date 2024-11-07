@@ -1,32 +1,46 @@
-import React, { useState, useEffect } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import Card from "../component/card";
+import { CardCharacters, CardPlanets } from "../component/card";
 
-export const Home = () => {
-	const [people, setPeople] = useState([])
-	useEffect(() => {
-		fetch("https://www.swapi.tech/api/people")
-			.then(res => res.json())
-			.then(data => setPeople(data.results))
-			.catch(err => console.error(err))
-	}, [])
+
+export const Home = () => { 
+	const { store } = useContext (Context)
+
+	
 	return (
 		<>
-			<div className="container">
+			<div className="container mt-5">
 				<h1 className="text-danger">Characters</h1>
-				<div className="border border-danger my-carousel">
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+				<div className="border border-light my-carousel">
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
+					<CardCharacters />
 				</div>
 			</div>
-		</>
+		
+
+<div className="container mt-5">
+	<h1 className="text-danger">Planets</h1>
+	<div className="border border-danger my-carousel">
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+		<CardPlanets />
+	</div>
+</div> 
+
+
+</>
 		// <div className="text-center mt-5">
 		// 	<h1>Star Wars API</h1>
 		// 	{
