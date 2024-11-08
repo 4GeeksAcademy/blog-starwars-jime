@@ -5,8 +5,9 @@ const CardCharacters = (props) => {
 
         <div className="my-card">
             <img src="https://starwars-visualguide.com/assets/img/characters/1.jpg" alt="imagen de Luke" />
-            <h3>Aqui va el nombre</h3>
+            
             <div className="my-body-text">
+            <h3 className="card-title">{props.name}</h3>
                 <p>Gender:</p>
                 <p>Hair Color:</p>
                 <p>Eye Color:</p>

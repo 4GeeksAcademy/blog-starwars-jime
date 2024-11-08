@@ -4,53 +4,51 @@ import "../../styles/home.css";
 import { CardCharacters, CardPlanets } from "../component/card";
 
 
-export const Home = () => { 
-	const { store } = useContext (Context)
+export const Home = () => {
+	const [people, setPeople] = useState([])
+	useEffect(() => {
+		fetch("https://www.swapi.tech/api/people")
+			.then(res => res.json())
+			.then(data => setPeople(data.results))
+			.catch(err => console.error(err))
+	}, [])
 
-	
-	return (
-		<>
-			<div className="container mt-5">
+	const { store } = useContext(Context)
+
+
+	return <div className="container mt-5"> 
+			
 				<h1 className="text-danger">Characters</h1>
 				<div className="border border-light my-carousel">
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
-					<CardCharacters />
+				{
+					people.map((item, index)=>{
+						return (
+							<CardCharacters key={index} name={item.name}/>
+						)
+					})
+				}
+				
+				</div>
+			
+
+
+			<div className="container mt-5">
+				<h1 className="text-danger">Planets</h1>
+				<div className="border border-light my-carousel">
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
+					<CardPlanets />
 				</div>
 			</div>
+
+
 		
 
-<div className="container mt-5">
-	<h1 className="text-danger">Planets</h1>
-	<div className="border border-danger my-carousel">
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-		<CardPlanets />
-	</div>
-</div> 
-
-
-</>
-		// <div className="text-center mt-5">
-		// 	<h1>Star Wars API</h1>
-		// 	{
-		// 		people.map((item, index) => {
-		// 			return (
-		// 				<Card key={index} name={item.name} uid={item.uid}></Card>
-		// 			)
-		// 		})
-		// 	}
-
-		// </div>
-	)
+		 </div>
+	
 };

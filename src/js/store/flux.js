@@ -41,20 +41,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			//esta funcion va a traer los characters
-			getCharacters: () => {
-				fetch(`${getStore().urlBase}/people`)
-					.then((response) => response.json())
-					.then((data) => {
-						setStore({
-							characters: {...getStore().characters, data.result}
-					})	
-						console.log(item)
+			// getCharacters: () => {
+			// 	fetch(`${getStore().urlBase}/people`)
+			// 		.then((response) => response.json())
+			// 		.then((data) => {
+			// 			setStore({
+			// 				characters: {...getStore().characters, data.result}
+			// 		})	
+			// 			console.log(item)
 
-					})
+			// 		})
 			}
 		}
 	}
 
-};
+
 
 export default getState;
