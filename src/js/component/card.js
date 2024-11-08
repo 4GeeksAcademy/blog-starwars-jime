@@ -27,8 +27,8 @@ const CardPlanets = (props) => {
 
         <div className="my-card">
             <img src="https://starwars-visualguide.com/assets/img/planets/5.jpg" alt="imagen de planeta Dagobah" />
-            <h3>Aqui va el nombre</h3>
             <div className="my-body-text">
+            <h3 className="card-title">{props.name}</h3>            
                 <p>Population:</p>
                 <p>Terrain:</p>
             </div>
