@@ -1,7 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			//characters [],
+			people: [],
+			planets: [],
+			person: {},
+			planet: {},
+			
 			urlBase: "https://www.swapi.tech/api", // para usar la url cada vez que la preciso, llamando a esta variable
 			demo: [
 				{
@@ -40,6 +44,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+
+			loadPeople: () => {
+				fetch("https://www.swapi.tech/api/people")
+					.then(res => res.json())
+					.then(data => setStore({ people: data.results }))
+					.catch(err => console.error(err))
+			},
+
+			loadPlanet: async () => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/planets")
+					const data = await response.json()
+					setStore({ planets: data.results })
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			},
+			loadInfoPerson: async (id) => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/people/"+ id)
+					const data = await response.json()
+					console.log (data.result)
+					setStore({ person: data.result })
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			},
+
+			loadInfoPlanet: async (id) => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/planets/"+ id)
+					const data = await response.json()
+					console.log (data.result)
+					setStore({ planet: data.result })
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			}
+
 			//esta funcion va a traer los characters
 			// getCharacters: () => {
 			// 	fetch(`${getStore().urlBase}/people`)
@@ -51,9 +100,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 			console.log(item)
 
 			// 		})
-			}
 		}
 	}
+}
 
 
 

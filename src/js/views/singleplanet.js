@@ -3,23 +3,23 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
+export const SinglePlanet = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	// 	 console.log (params) 
 	//   const {theid}= useParams ()
 	useEffect (()=>{
-		actions.loadInfoPerson (params.theid)
+		actions.loadInfoPlanet (params.theid)
 	},[])
 	return (
 		<div className="jumbotron">
-			<h1>{store.person?.properties?.name}</h1>
-			<h1>{store.person?.properties?.gender}</h1>
-			<h1>{store.person?.properties?.hair_color}</h1>
+			<h1>{store.planet?.properties?.name}</h1>
+			{/* <h1>{store.person?.properties?.gender}</h1>
+			<h1>{store.person?.properties?.hair_color}</h1> */}
 		</div>
 	);
 };
 
-Single.propTypes = {
+SinglePlanet.propTypes = {
 	match: PropTypes.object
 };
