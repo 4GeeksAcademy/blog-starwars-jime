@@ -13,7 +13,9 @@ export const SinglePlanet = props => {
 	},[])
 	return (
 		<div className="jumbotron">
-			<h1>{store.planet?.properties?.name}</h1>
+			<h1>Nombre: {store.planet?.properties?.name}</h1>
+			<h1>Población: {store.planet?.properties?.population} habitantes</h1>
+			<h1>Terreno: {store.planet?.properties?.terrain}</h1>
 			{/* <h1>{store.person?.properties?.gender}</h1>
 			<h1>{store.person?.properties?.hair_color}</h1> */}
 		</div>

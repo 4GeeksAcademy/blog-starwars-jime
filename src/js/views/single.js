@@ -13,9 +13,9 @@ export const Single = props => {
 	},[])
 	return (
 		<div className="jumbotron">
-			<h1>{store.person?.properties?.name}</h1>
-			<h1>{store.person?.properties?.gender}</h1>
-			<h1>{store.person?.properties?.hair_color}</h1>
+			<h1>Nombre: {store.person?.properties?.name}</h1>
+			<h1>Género: {store.person?.properties?.gender}</h1>
+			<h1>Color de cabello: {store.person?.properties?.hair_color}</h1>
 		</div>
 	);
 };

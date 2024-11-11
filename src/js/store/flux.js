@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			person: {},
 			planet: {},
+			favorites: [],
 			
 			urlBase: "https://www.swapi.tech/api", // para usar la url cada vez que la preciso, llamando a esta variable
 			demo: [
@@ -87,19 +88,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 					return false
 				}
-			}
+			},
 
-			//esta funcion va a traer los characters
-			// getCharacters: () => {
-			// 	fetch(`${getStore().urlBase}/people`)
-			// 		.then((response) => response.json())
-			// 		.then((data) => {
-			// 			setStore({
-			// 				characters: {...getStore().characters, data.result}
-			// 		})	
-			// 			console.log(item)
+			
 
-			// 		})
 		}
 	}
 }
