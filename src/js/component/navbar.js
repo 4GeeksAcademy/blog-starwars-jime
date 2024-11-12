@@ -6,7 +6,7 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light mb-3">
 			<div className="container">
 				<Link to="/">
-					<img className="my-logo" src="https://cdn.worldvectorlogo.com/logos/star-wars.svg" alt="logo Star Wars"/>
+					<img className="my-logo" src="https://seeklogo.com/images/S/Star_Wars-logo-2B2C24F703-seeklogo.com.png" alt="logo Star Wars"/>
 				</Link>
 				<div className="ml-auto">
 					<div className="dropdown">
@@ -15,8 +15,6 @@ export const Navbar = () => {
 						</button>
 						<ul className="dropdown-menu">
 							<li><a className="dropdown-item" href="#">Action</a></li>
-							<li><a className="dropdown-item" href="#">Another action</a></li>
-							<li><a className="dropdown-item" href="#">Something else here</a></li>
 						</ul>
 					</div>
 				</div>

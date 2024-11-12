@@ -2,7 +2,7 @@
     General Styles
 */
 .my-logo {
-    width:70px;
+    width:90px;
     }
 
 .my-carousel {
@@ -11,17 +11,19 @@
 }
 .my-card { 
     border: 1px solid grey;
-    min-width: 300px;
+    min-width: 260px;
     margin-right: 15px;
+    background-color: black;
 
 }
 .my-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    /* object-fit: cover; */
 }
-.my-card h3 {
-    padding: 15px;
+.my-card h4 {
+    padding: 5px;
+    color: white;
 }
 .my-body-text {
     padding: 15px;
@@ -33,4 +35,13 @@
     justify-content: space-between;
     }
 
+.my-card-single {
+    color: white;
+    border: 1px solid grey;
+    width: 400px;
+    background-color: black;
+    padding: 40px;
+    margin: auto
+   
     
+}    

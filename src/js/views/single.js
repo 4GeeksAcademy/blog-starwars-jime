@@ -11,11 +11,16 @@ export const Single = props => {
 	useEffect (()=>{
 		actions.loadInfoPerson (params.theid)
 	},[])
+
+	
 	return (
-		<div className="jumbotron">
-			<h1>Nombre: {store.person?.properties?.name}</h1>
-			<h1>Género: {store.person?.properties?.gender}</h1>
-			<h1>Color de cabello: {store.person?.properties?.hair_color}</h1>
+		<div className="my-card-single">
+			<img src={`https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`} alt="imagen de personaje" />
+			<h2 className= "text-warning">{store.person?.properties?.name}</h2>
+			<h3>Género: {store.person?.properties?.gender}</h3>
+			<h3>Color de cabello: {store.person?.properties?.hair_color}</h3>
+			<h3>Color de ojos: {store.person?.properties?.eye_color}</h3>
+			<h3>Altura: {store.person?.properties?.height} cms.</h3>
 		</div>
 	);
 };

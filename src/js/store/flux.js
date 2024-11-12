@@ -3,10 +3,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 			planets: [],
+			vehicles: [],
 			person: {},
 			planet: {},
+			vehicle: {},
 			favorites: [],
-			
+
 			urlBase: "https://www.swapi.tech/api", // para usar la url cada vez que la preciso, llamando a esta variable
 			demo: [
 				{
@@ -64,11 +66,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false
 				}
 			},
+
+			loadVehicle: async () => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/vehicles")
+					const data = await response.json()
+					setStore({ vehicles: data.results })
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+
+			},
 			loadInfoPerson: async (id) => {
 				try {
-					const response = await fetch("https://www.swapi.tech/api/people/"+ id)
+					const response = await fetch("https://www.swapi.tech/api/people/" + id)
 					const data = await response.json()
-					console.log (data.result)
+					console.log(data.result)
 					setStore({ person: data.result })
 					return true
 				} catch (error) {
@@ -79,9 +94,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadInfoPlanet: async (id) => {
 				try {
-					const response = await fetch("https://www.swapi.tech/api/planets/"+ id)
+					const response = await fetch("https://www.swapi.tech/api/planets/" + id)
 					const data = await response.json()
-					console.log (data.result)
+					console.log(data.result)
 					setStore({ planet: data.result })
 					return true
 				} catch (error) {
@@ -90,7 +105,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			
+			loadInfoVehicle: async (id) => {
+				try {
+					const response = await fetch("https://www.swapi.tech/api/vehicles/" + id)
+					const data = await response.json()
+					console.log(data.result)
+					setStore({ planet: data.result })
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			},	
 
 		}
 	}
