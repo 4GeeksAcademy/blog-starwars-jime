@@ -110,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://www.swapi.tech/api/vehicles/" + id)
 					const data = await response.json()
 					console.log(data.result)
-					setStore({ planet: data.result })
+					setStore({ vehicle: data.result })
 					return true
 				} catch (error) {
 					console.log(error)
