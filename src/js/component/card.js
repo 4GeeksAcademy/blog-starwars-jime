@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 const CardCharacters = (props) => {
+    const { actions, store } = useContext(Context)
+    const isFavorite = store.favorites.includes(props.name)
     return (
 
         <div className="my-card">
@@ -14,7 +17,9 @@ const CardCharacters = (props) => {
                 <Link to={"/single/" + props.uid} >
                     <button type="button" className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button type="button" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
+                <button type="button" onClick={() => actions.myFavorites(props.name)} className="btn btn-outline-warning">
+                    <i className={`fa-regular fa-heart ${isFavorite ? "text-dark" : "text-warning"}`}></i>
+                </button>
             </div>
         </div>
 
@@ -23,6 +28,8 @@ const CardCharacters = (props) => {
 }
 
 const CardPlanets = (props) => {
+    const { actions, store } = useContext(Context)
+    const isFavorite = store.favorites.includes(props.name)
     return (
 
         <div className="my-card">
@@ -33,10 +40,12 @@ const CardPlanets = (props) => {
                 <h4 className="card-title">{props.name}</h4>
             </div>
             <div className="my-footer">
-            <Link to={"/singlePlanet/" + props.uid} >
+                <Link to={"/singlePlanet/" + props.uid} >
                     <button type="button" className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button type="button" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
+                <button type="button" onClick={() => actions.myFavorites(props.name)} className="btn btn-outline-warning">
+                    <i className={`fa-regular fa-heart ${isFavorite ? "text-dark" : "text-warning"}`}></i>
+                </button>
             </div>
         </div>
 
@@ -45,6 +54,8 @@ const CardPlanets = (props) => {
 }
 
 const CardVehicles = (props) => {
+    const { actions, store } = useContext(Context)
+    const isFavorite = store.favorites.includes(props.name)
     return (
 
         <div className="my-card">
@@ -57,7 +68,9 @@ const CardVehicles = (props) => {
                 <Link to={"/singleVehicle/" + props.uid} >
                     <button type="button" className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button type="button" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
+                <button type="button" onClick={() => actions.myFavorites(props.name)} className="btn btn-outline-warning">
+                    <i className={`fa-regular fa-heart ${isFavorite ? "text-dark" : "text-warning"}`}></i>
+                </button>
             </div>
         </div>
 

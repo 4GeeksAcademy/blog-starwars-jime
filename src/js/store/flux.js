@@ -118,6 +118,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},	
 
+			myFavorites: (item) =>{
+				if (getStore().favorites.includes(item)){
+					//si ya existe lo borra
+					let aux = [] 
+					aux= getStore().favorites.filter((nombre)=>nombre != item)
+					setStore ({favorites:aux})
+				} else {
+					//si no existe lo guarda
+					setStore({favorites:[...getStore().favorites, item] } )
+				}
+			}
 		}
 	}
 }
